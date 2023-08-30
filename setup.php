@@ -14,20 +14,6 @@
                                         Version 1.0.0 by Snayto (Arnaud WIEREL) @2023
 */
 
-<?php
-/*
-__________________________________________________________________________________________________________________________
-| ______     _       _            _____                   _            _____                                             |
-| | ___ \   (_)     | |          /  __ \                 | |          /  ___|                                            |
-| | |_/ / __ _ _ __ | |_ ___ _ __| /  \/ ___  _   _ _ __ | |_ ___ _ __\ `--. _   _ _ __ ___  _ __ ___   __ _ _ __ _   _  |
-| |  __/ '__| | '_ \| __/ _ \ '__| |    / _ \| | | | '_ \| __/ _ \ '__|`--. \ | | | '_ ` _ \| '_ ` _ \ / _` | '__| | | | |
-| | |  | |  | | | | | ||  __/ |  | \__/\ (_) | |_| | | | | ||  __/ |  /\__/ / |_| | | | | | | | | | | | (_| | |  | |_| | |
-| \_|  |_|  |_|_| |_|\__\___|_|   \____/\___/ \__,_|_| |_|\__\___|_|  \____/ \__,_|_| |_| |_|_| |_| |_|\__,_|_|   \__, | |
-|                                                                                                                  __/ | |
-|                                                                                                                 |___/  |
-|___________________________________Version 2.0.0 by Snayto (Arnaud WIEREL) @2023________________________________________|
-*/
-
 // Change le nom du plugin en "CodeBarre_GLPI"
 define('CODEBARRE_GLPI_VERSION', '1.0.0');
 
@@ -45,10 +31,10 @@ function plugin_init_codebarre_glpi()
 
     // Obligatoire !
     $PLUGIN_HOOKS['csrf_compliant']['CodeBarre_GLPI'] = true;
-    
+
     // Ajoute l'entrée au menu contextuel de l'appareil
     $PLUGIN_HOOKS['menu_toadd']['codebarre_glpi'] = array('context' => 'PluginCodeBarreGLPI');
-    
+
     // Enregistre la classe du plugin
     Plugin::registerClass('PluginCodeBarreGLPI');
 }

@@ -1,0 +1,1 @@
+# CodeBarre_GLPI

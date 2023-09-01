@@ -14,8 +14,6 @@
                                         Version 1.0.0 by Snayto (Arnaud WIEREL) @2023
 */
 
-include_once('inc/codebarre_glpi.class.php');
-
 /**
  * @return boolean
  */

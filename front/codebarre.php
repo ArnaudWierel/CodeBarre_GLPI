@@ -19,31 +19,41 @@ include_once('../../../inc/includes.php');
 include_once('../inc/codebarre_glpi.class.php');
 include_once('../inc/generateur_code_barre.class.php');
 
-html::header(__('CodeBarre', 'codebarre'), $_SERVER['PHP_SELF'], 'plugins', 'codebarre', 'codebarre');
-
-echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>';
-echo '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">';
-echo '<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>';
-
-echo '<div class="center">';
-echo '<h2>' . __('Bienvenue sur le plugin CodeBarre_GLPI !', 'codebarre') . '</h2>';
-
-echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="get">';
-echo '<label for="texte">Entrez votre texte ici :</label>';
-echo '<input type="text" id="texte" name="texte">';
-echo '<input type="submit" value="Enregistrer">';
-echo '</form>';
-
-echo '</div>';
-
-
+$codebarre = new generateur_code_barre();
 
 if (isset($_GET["texte"])) {
    $texte = $_GET["texte"];
-   echo "Le texte passé en paramètre est : " . $texte;
+   $codebarre->genererEtiquette($texte);
+   unset($_GET["texte"]);
 }
 
-echo '</div>';
+html::header(__('CodeBarre', 'codebarre'), $_SERVER['PHP_SELF'], 'plugins', 'codebarre', 'codebarre');
+?>
 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Plugin CodeBarre_GLPI</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <div class="container">
+      <h2>Bienvenue sur le plugin CodeBarre_GLPI !</h2>
+
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+         <label for="texte">Entrez votre texte ici :</label>
+         <input type="text" id="texte" name="texte" value="<?php echo $codebarre->get_name(); ?>" class="input-text">
+         <input type="submit" value="Enregistrer" class="submit-button">
+      </form>
+   </div>
+</body>
+
+</html>
+
+<?php
 Html::footer();
 ?>

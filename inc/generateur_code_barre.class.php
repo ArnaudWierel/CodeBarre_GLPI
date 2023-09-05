@@ -33,6 +33,8 @@ class generateur_code_barre
 {
     private $name;
 
+    private $code_barre_largeur;
+
     function __construct()
     {
     }
@@ -42,6 +44,15 @@ class generateur_code_barre
         $this->name = $name;
     }
 
+    function get_code_barre_largeur()
+    {
+        return $this->code_barre_largeur;
+    }
+
+    function set_code_barre_largeur($code_barre_largeur)
+    {
+        $this->code_barre_largeur = $code_barre_largeur;
+    }
     function get_name()
     {
         return $this->name;
@@ -50,8 +61,8 @@ class generateur_code_barre
     function genererEtiquette($nom)
     {
         // Dimensions de l'étiquette en pixels
-        $largeur_etiquette = 328.81889764;
-        $hauteur_etiquette = 64.251968504;
+        $largeur_etiquette = 350;
+        $hauteur_etiquette = 65;
 
         // Créer une image vide de la taille souhaitée pour l'étiquette
         $image = imagecreatetruecolor($largeur_etiquette, $hauteur_etiquette);

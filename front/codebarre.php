@@ -25,6 +25,7 @@ if (isset($_GET["texte"])) {
    $texte = $_GET["texte"];
    $codebarre->genererEtiquette($texte);
    unset($_GET["texte"]);
+   // mettre en message navigateur code barre largeur
 }
 
 html::header(__('CodeBarre', 'codebarre'), $_SERVER['PHP_SELF'], 'plugins', 'codebarre', 'codebarre');

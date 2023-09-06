@@ -47,7 +47,8 @@ html::header(__('CodeBarre', 'codebarre'), $_SERVER['PHP_SELF'], 'plugins', 'cod
 
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
          <label for="texte">Entrez votre texte ici :</label>
-         <input type="text" id="texte" name="texte" value="<?php echo $codebarre->get_name(); ?>" class="input-text">
+         <input type="text" id="texte" name="texte" value="<?php echo $codebarre->get_name(); ?>" class="input-text"
+            maxlength="14">
          <input type="submit" value="Enregistrer" class="submit-button">
       </form>
    </div>
